@@ -28,3 +28,5 @@ http://automatetheboringstuff.com/2e/chapter12/
 http://automatetheboringstuff.com/2e/chapter17/  
 https://stackoverflow.com/questions/10415028/how-can-i-recover-the-return-value-of-a-function-passed-to-multiprocessing-proce  
 https://stackoverflow.com/questions/11055303/multiprocessing-global-variable-updates-not-returned-to-parent
+https://stackoverflow.com/questions/110362/how-can-i-find-the-current-os-in-python
+http://automatetheboringstuff.com/2e/chapter9/
