@@ -69,10 +69,10 @@ def scrapeGuide1(guide1Link, results):
 
     guide1Abilities = ''
 
-    q = [str(x)+'' for x in range(1,19)]
-    w = [str(x)+'' for x in range(1,19)]
-    e = [str(x)+'' for x in range(1,19)]
-    r = [str(x)+'' for x in range(1,19)]
+    q = [str(x) for x in range(1,19)]
+    w = [str(x) for x in range(1,19)]
+    e = [str(x) for x in range(1,19)]
+    r = [str(x) for x in range(1,19)]
 
     guide1AbilityRows = guide1Soup.find_all(level=True)
     for i in range(len(guide1AbilityRows[:18])):
@@ -149,10 +149,10 @@ def scrapeGuide2(guide2Link, results):
     # get second guide abilities
     guide2Abilities = ''
 
-    q = [str(x)+'' for x in range(1,19)]
-    w = [str(x)+'' for x in range(1,19)]
-    e = [str(x)+'' for x in range(1,19)]
-    r = [str(x)+'' for x in range(1,19)]
+    q = [str(x) for x in range(1,19)]
+    w = [str(x) for x in range(1,19)]
+    e = [str(x) for x in range(1,19)]
+    r = [str(x) for x in range(1,19)]
 
     guide2AbilityRows = guide2Soup.find_all(level=True)
     for i in range(len(guide2AbilityRows[:18])):
@@ -229,10 +229,10 @@ def scrapeGuide3(guide3Link, results):
     # get third guide abilities
     guide3Abilities = ''
 
-    q = [str(x)+'' for x in range(1,19)]
-    w = [str(x)+'' for x in range(1,19)]
-    e = [str(x)+'' for x in range(1,19)]
-    r = [str(x)+'' for x in range(1,19)]
+    q = [str(x) for x in range(1,19)]
+    w = [str(x) for x in range(1,19)]
+    e = [str(x) for x in range(1,19)]
+    r = [str(x) for x in range(1,19)]
 
     guide3AbilityRows = guide3Soup.find_all(level=True)
     for i in range(len(guide3AbilityRows[:18])):
