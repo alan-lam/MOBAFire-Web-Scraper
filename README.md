@@ -1,9 +1,18 @@
 # MOBAFire-Web-Scraper
-A web scraper that grabs runes, spells, items, and level order for any champion from the top 3 guides on MOBAFire. The results are written to an HTML file ("lol.html"), which is automatically opened in the default web browser.
+A web scraper that grabs runes, spells, items, and level order for any champion from the top 3 guides on MOBAFire.
 
+The results are written to an HTML file ("lol.html"), which is automatically opened in the default web browser.
+
+## Usage
 Run script using serial execution: `python lol.py [-t] champion-name`  
 Run script using multiprocessing: `python lolm.py [-t] champion-name`  
 The `-t` option times the program and writes the time to a file called "times.txt". It also automatically runs "time_analysis.py", which saves a graph ("times.png").
+
+Dependencies:
+- requests
+- bs4
+- matplotlib (if running with the `-t` option)
+- numpy (if running with the `-t` option)
 
 ## Screenshots
 ![](lol.png)
@@ -15,24 +24,26 @@ The `-t` option times the program and writes the time to a file called "times.tx
 ## Challenges
 ### Getting the MOBAFire link
 
-If you go on mobafire.com and search for a champion using the page's search function, the page with all the guides will have a URL with a (seemingly random) number at the end.
-
-https://www.mobafire.com/league-of-legends/champion/vayne-76
-
-That URL is also the first result of a Google search for "mobafire vayne" and "mobafire vayne guide". This led me to believe that I had to know the number for each champion. I got around this by going to leaguespy.gg to grab the link to MOBAFire.
+If you go on mobafire.com and search for a champion using the page's search function, the page with all the guides will have a URL with a (seemingly random) number at the end. https://www.mobafire.com/league-of-legends/champion/vayne-76. That URL is also the first result of a Google search for "mobafire vayne" and "mobafire vayne guide". This led me to believe that I had to know the number for each champion. I got around this by going to leaguespy.gg to grab the link to MOBAFire.
 
 I later found out that https://www.mobafire.com/league-of-legends/vayne-guide also takes me to the list of guides. Needless to say, removing the extra request to LeagueSpy sped up my program (by ~2 seconds).
 
 ### Multithreading vs. Multiprocessing
 
-It was possible to parallelize the request and extraction tasks for each guide, but putting them on threads didn't help because of the GIL (Global Interpreter Lock). However, putting them on subprocesses resulted in faster performance.
+It was possible to parallelize the request and extraction tasks for each guide, but putting them on threads didn't help because of the GIL (Global Interpreter Lock).
+
+However, putting them on subprocesses resulted in faster performance.
 
 ### Multiprocessing Shared Variable
 
-After putting each task on a process, I had to get the result of the scrape from each function. But each new process has its own instance of Python, so using a global list didn't work. Using `multiprocessing`'s Manager solved the problem of sharing data between different processes.
+After putting each task on a process, I had to get the result of the scrape from each function. But each new process has its own instance of Python, so using a global list didn't work.
+
+Using `multiprocessing`'s Manager solved the problem of sharing data between different processes.
 
 ### Multiprocessing in Windows vs. Linux
-Linux has a `fork()` method, so when a new process is created, the next line it executes is the line after it was created. On the other hand, Windows doesn't have a `fork()` method, so when a new process is created, it starts over from the beginning of the file. Protecting the code that creates new processes inside `if __name__ == '__main__':` prevents an infinite loop of process spawning.
+Linux has a `fork()` method, so when a new process is created, the next line it executes is the line after it was created. On the other hand, Windows doesn't have a `fork()` method, so when a new process is created, it starts over from the beginning of the file. (This is probably why multiprocessing is actually slower on Windows.)
+
+Protecting the code that creates new processes inside `if __name__ == '__main__':` prevents an infinite loop of process spawning.
 
 ## Resources
 http://automatetheboringstuff.com/2e/chapter12/  
