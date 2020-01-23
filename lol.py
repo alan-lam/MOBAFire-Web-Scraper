@@ -292,7 +292,7 @@ endTime = time.time()
 
 if timeFlag:
     timeFile = open('times.txt', 'a')
-    timeFile.write(platform.system())
+    timeFile.write(platform.system() + ' (serial)')
     timeFile.write('\n')
     timeFile.write(str(endTime-startTime))
     timeFile.write('\n')

@@ -305,7 +305,7 @@ if __name__ == '__main__':
     
     if timeFlag:
         timeFile = open('times.txt', 'a')
-        timeFile.write(platform.system())
+        timeFile.write(platform.system() + ' (multiprocessing)')
         timeFile.write('\n')
         timeFile.write(str(endTime-startTime))
         timeFile.write('\n')
