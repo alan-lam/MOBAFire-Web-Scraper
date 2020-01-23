@@ -6,6 +6,10 @@ The `-t` option times the program and writes the time to a file called "times.tx
 
 ## Screenshots
 
+## Time Comparison (Serial Execution vs. Multiprocessing)
+
+![](times.png)
+
 ## Challenges
 ### Getting the MOBAFire link
 
