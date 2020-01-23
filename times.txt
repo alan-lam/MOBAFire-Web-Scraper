@@ -6,3 +6,7 @@ Linux (serial)
 11.687734842300415
 Linux (multiprocessing)
 7.528759241104126
+Windows (serial)
+5.405890703201294
+Windows (multiprocessing)
+5.853134632110596

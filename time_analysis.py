@@ -26,11 +26,6 @@ while i < len(timesContent)-1:
         else:
             lin_multi.append(float(time[:len(time)-1]))
     i += 2
-    
-print(win_serial)
-print(win_multi)
-print(lin_serial)
-print(lin_multi)
 
 labels = ['Windows', 'Linux (Chromebook)']
 serial_means = np.around([np.mean(win_serial), np.mean(lin_serial)], decimals=3)

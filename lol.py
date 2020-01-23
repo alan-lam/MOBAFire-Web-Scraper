@@ -296,3 +296,4 @@ if timeFlag:
     timeFile.write('\n')
     timeFile.write(str(endTime-startTime))
     timeFile.write('\n')
+    import time_analysis

@@ -309,3 +309,4 @@ if __name__ == '__main__':
         timeFile.write('\n')
         timeFile.write(str(endTime-startTime))
         timeFile.write('\n')
+        import time_analysis
