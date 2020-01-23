@@ -8,6 +8,8 @@ Run script using serial execution: `python lol.py [-t] champion-name`
 Run script using multiprocessing: `python lolm.py [-t] champion-name`  
 The `-t` option times the program and writes the time to a file called "times.txt". It also automatically runs "time_analysis.py", which saves a graph ("times.png").
 
+Most common alternative champion names are handled, e.g. "cass", "tf", "jarvan", "nunu", "mundo".
+
 Dependencies:
 - requests
 - bs4
@@ -54,4 +56,5 @@ https://stackoverflow.com/questions/110362/how-can-i-find-the-current-os-in-pyth
 http://automatetheboringstuff.com/2e/chapter9/  
 https://stackoverflow.com/questions/20360686/compulsory-usage-of-if-name-main-in-windows-while-using-multiprocessi  
 https://stackoverflow.com/questions/7974849/how-can-i-make-one-python-file-run-another  
-https://stackoverflow.com/questions/5466451/how-can-i-print-literal-curly-brace-characters-in-python-string-and-also-use-fo/44636315
+https://stackoverflow.com/questions/5466451/how-can-i-print-literal-curly-brace-characters-in-python-string-and-also-use-fo/44636315  
+https://stackoverflow.com/questions/2974022/is-it-possible-to-assign-the-same-value-to-multiple-keys-in-a-dict-object-at-onc
