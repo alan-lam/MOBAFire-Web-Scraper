@@ -1,4 +1,4 @@
-import requests, bs4, sys, re, multiprocessing, time, platform
+import requests, bs4, sys, re, multiprocessing, time, platform, webbrowser
 
 MOBAFIRE_URL = 'https://mobafire.com'
 RUNES_TITLE_SELECTOR = '.new-runes__title'
@@ -7,8 +7,7 @@ SECONDARY_RUNES_SELECTOR = '.new-runes__secondary .new-runes__item'
 BONUSES_SELECTOR = '.new-runes__bonuses'
 SPELLS_SELECTOR = '.view-guide__spells__row'
 ITEMS_SELECTOR = '.view-guide__build[style="display: block;"] .view-guide__items'
-GUIDE_SEPARATOR = '\n' + '*'*50 + '\n'
-SECTION_SEPARATOR = '\n' + '-'*30 + '\n'
+SECTION_SEPARATOR = '\n' + '-'*50 + '\n'
 
 def scrapeGuide1(guide1Link, results):
     # make request for first guide
@@ -298,8 +297,14 @@ if __name__ == '__main__':
     for process in processes:
         process.join()
 
-    output = GUIDE_SEPARATOR + results[0] + GUIDE_SEPARATOR + results[1] + GUIDE_SEPARATOR + results[2] + GUIDE_SEPARATOR
-    print(output)
+    htmlFile = open('lol.html', 'w')
+    guide1 = '<br>'.join(results[0].split('\n'))
+    guide2 = '<br>'.join(results[0].split('\n'))
+    guide3 = '<br>'.join(results[0].split('\n'))
+    html = '<html><head><title>{} guides</title><style>body{{font-family:monospace;}}</style></head><body><h1>{}</h1><p>{}</p><h1>{}</h1><p>{}</p><h1>{}</h1><p>{}</p></body></html>'.format(champion, 'Guide 1', guide1, 'Guide 2', guide2, 'Guide 3', guide3)
+    htmlFile.write(html)
+    htmlFile.close()
+    webbrowser.open('lol.html')
 
     endTime = time.time()
     
