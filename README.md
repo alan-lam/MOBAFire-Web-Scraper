@@ -1,8 +1,9 @@
 # MOBAFire-Web-Scraper
 A web scraper that grabs runes, spells, items, and level order for any champion from the top 3 guides on MOBAFire
 
-Usage: `python lol.py [-t] champion-name`  
-The `-t` option times the program and writes the time to a file called "times.txt".
+Run script using serial execution: `python lol.py [-t] champion-name`  
+Run script using multiprocessing: `python lolm.py [-t] champion-name`  
+The `-t` option times the program and writes the time to a file called "times.txt". It also automatically runs "time_analysis.py", which saves a graph ("times.png").
 
 ## Screenshots
 
