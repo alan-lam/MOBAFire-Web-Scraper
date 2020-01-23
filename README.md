@@ -1,11 +1,12 @@
 # MOBAFire-Web-Scraper
-A web scraper that grabs runes, spells, items, and level order for any champion from the top 3 guides on MOBAFire
+A web scraper that grabs runes, spells, items, and level order for any champion from the top 3 guides on MOBAFire. The results are written to an HTML file ("lol.html"), which is automatically opened in the default web browser.
 
 Run script using serial execution: `python lol.py [-t] champion-name`  
 Run script using multiprocessing: `python lolm.py [-t] champion-name`  
 The `-t` option times the program and writes the time to a file called "times.txt". It also automatically runs "time_analysis.py", which saves a graph ("times.png").
 
 ## Screenshots
+![](lol.png)
 
 ## Time Comparison (Serial Execution vs. Multiprocessing)
 
@@ -41,4 +42,5 @@ https://stackoverflow.com/questions/11055303/multiprocessing-global-variable-upd
 https://stackoverflow.com/questions/110362/how-can-i-find-the-current-os-in-python
 http://automatetheboringstuff.com/2e/chapter9/  
 https://stackoverflow.com/questions/20360686/compulsory-usage-of-if-name-main-in-windows-while-using-multiprocessi  
-https://stackoverflow.com/questions/7974849/how-can-i-make-one-python-file-run-another
+https://stackoverflow.com/questions/7974849/how-can-i-make-one-python-file-run-another  
+https://stackoverflow.com/questions/5466451/how-can-i-print-literal-curly-brace-characters-in-python-string-and-also-use-fo/44636315
