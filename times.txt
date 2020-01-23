@@ -1,0 +1,4 @@
+Windows (serial)
+6.374553680419922
+Windows (multiprocessing)
+6.827646017074585
