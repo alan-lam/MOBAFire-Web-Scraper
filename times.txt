@@ -2,3 +2,7 @@ Windows (serial)
 6.374553680419922
 Windows (multiprocessing)
 6.827646017074585
+Linux (serial)
+13.90816068649292
+Linux (multiprocessing)
+8.399452924728394
