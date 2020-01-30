@@ -29,19 +29,19 @@ while i < len(timesContent)-1:
 
 labels = ['Windows', 'Linux']
 
-if len(win_serial > 0):
+if len(win_serial) > 0:
     win_serial_mean = np.mean(win_serial)
 else:
     win_serial_mean = 0
-if len(win_multi > 0):
+if len(win_multi) > 0:
     win_multi_mean = np.mean(win_multi)
 else:
     win_multi_mean = 0
-if len(lin_serial > 0):
+if len(lin_serial) > 0:
     lin_serial_mean = np.mean(lin_serial)
 else:
     lin_serial_mean = 0
-if len(lin_multi > 0):
+if len(lin_multi) > 0:
     lin_multi_mean = np.mean(lin_multi)
 else:
     lin_multi_mean = 0
