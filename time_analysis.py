@@ -10,6 +10,8 @@ win_serial = []
 win_multi = []
 lin_serial = []
 lin_multi = []
+mac_serial = []
+mac_multi = []
 
 i = 0
 while i < len(timesContent)-1:
@@ -20,14 +22,19 @@ while i < len(timesContent)-1:
             win_serial.append(float(time[:len(time)-1]))
         else:
             win_multi.append(float(time[:len(time)-1]))
-    else:
+    elif 'Linux' in platform_type:
         if 'serial' in platform_type:
             lin_serial.append(float(time[:len(time)-1]))
         else:
             lin_multi.append(float(time[:len(time)-1]))
+    else:
+        if 'serial' in platform_type:
+            mac_serial.append(float(time[:len(time)-1]))
+        else:
+            mac_multi.append(float(time[:len(time)-1]))
     i += 2
 
-labels = ['Windows', 'Linux']
+labels = ['Windows', 'Linux', 'macOS']
 
 if len(win_serial) > 0:
     win_serial_mean = np.mean(win_serial)
@@ -45,8 +52,17 @@ if len(lin_multi) > 0:
     lin_multi_mean = np.mean(lin_multi)
 else:
     lin_multi_mean = 0
-serial_means = np.around([win_serial_mean, lin_serial_mean], decimals=3)
-multi_means = np.around([win_multi_mean, lin_multi_mean], decimals=3)
+if len(mac_serial) > 0:
+    mac_serial_mean = np.mean(mac_serial)
+else:
+    mac_serial_mean = 0
+if len(mac_multi) > 0:
+    mac_multi_mean = np.mean(mac_multi)
+else:
+    mac_multi_mean = 0
+
+serial_means = np.around([win_serial_mean, lin_serial_mean, mac_serial_mean], decimals=3)
+multi_means = np.around([win_multi_mean, lin_multi_mean, mac_multi_mean], decimals=3)
 
 x = np.arange(len(labels))  # the label locations
 width = 0.35  # the width of the bars
