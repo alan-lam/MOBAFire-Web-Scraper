@@ -26,3 +26,7 @@ Linux (serial)
 14.224493265151978
 Linux (multiprocessing)
 8.301258563995361
+Linux (multiprocessing)
+7.275967121124268
+Linux (serial)
+11.280571699142456
