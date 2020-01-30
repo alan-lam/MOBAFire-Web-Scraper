@@ -28,8 +28,25 @@ while i < len(timesContent)-1:
     i += 2
 
 labels = ['Windows', 'Linux']
-serial_means = np.around([np.mean(win_serial), np.mean(lin_serial)], decimals=3)
-multi_means = np.around([np.mean(win_multi), np.mean(lin_multi)], decimals=3)
+
+if len(win_serial > 0):
+    win_serial_mean = np.mean(win_serial)
+else:
+    win_serial_mean = 0
+if len(win_multi > 0):
+    win_multi_mean = np.mean(win_multi)
+else:
+    win_multi_mean = 0
+if len(lin_serial > 0):
+    lin_serial_mean = np.mean(lin_serial)
+else:
+    lin_serial_mean = 0
+if len(lin_multi > 0):
+    lin_multi_mean = np.mean(lin_multi)
+else:
+    lin_multi_mean = 0
+serial_means = np.around([win_serial_mean, lin_serial_mean], decimals=3)
+multi_means = np.around([win_multi_mean, lin_multi_mean], decimals=3)
 
 x = np.arange(len(labels))  # the label locations
 width = 0.35  # the width of the bars
