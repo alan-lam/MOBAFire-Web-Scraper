@@ -17,11 +17,11 @@ Dependencies:
 - numpy (if running with the `-t` option)
 
 ## Screenshots
-![](lol.png)
+![](pictures/lol.png)
 
 ## Time Comparison (Serial Execution vs. Multiprocessing)
 
-![](times.png)
+![](pictures/times.png)
 
 ## Challenges
 ### Getting the MOBAFire link

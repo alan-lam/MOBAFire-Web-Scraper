@@ -1,3 +1,13 @@
+import requests, bs4, sys, re
+
+RUNES_TITLE_SELECTOR = '.new-runes__title'
+PRIMARY_RUNES_SELECTOR = '.new-runes__primary .new-runes__item'
+SECONDARY_RUNES_SELECTOR = '.new-runes__secondary .new-runes__item'
+BONUSES_SELECTOR = '.new-runes__bonuses'
+SPELLS_SELECTOR = '.view-guide__spells__row'
+ITEMS_SELECTOR = '.view-guide__build[style="display: block;"] .view-guide__items'
+SECTION_SEPARATOR = '\n' + '-'*50 + '\n'
+
 def scrapeGuide1(guide1Link, results):
     # make request for first guide
     guide1Res = requests.get(guide1Link)
