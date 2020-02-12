@@ -1,4 +1,4 @@
-import matplotlib
+import os
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -92,4 +92,4 @@ autolabel(rects1)
 autolabel(rects2)
 
 fig.tight_layout()
-fig.savefig('times.png')
+fig.savefig(os.path.join('pictures', 'times.png'))
