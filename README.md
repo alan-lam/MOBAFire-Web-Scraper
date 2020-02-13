@@ -17,6 +17,7 @@ Dependencies:
 - numpy (if running with the `-t` option)
 
 ## Screenshots
+![](pictures/gui.png)
 ![](pictures/lol.png)
 
 ## Time Comparison (Serial Execution vs. Multiprocessing)
