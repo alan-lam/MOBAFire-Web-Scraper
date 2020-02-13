@@ -25,19 +25,16 @@ Dependencies:
 
 ## Challenges
 ### Getting the MOBAFire link
-
 If you go on mobafire.com and search for a champion using the page's search function, the page with all the guides will have a URL with a (seemingly random) number at the end. https://www.mobafire.com/league-of-legends/champion/vayne-76. That URL is also the first result of a Google search for "mobafire vayne" and "mobafire vayne guide". This led me to believe that I had to know the number for each champion. I got around this by going to leaguespy.gg to grab the link to MOBAFire.
 
 I later found out that https://www.mobafire.com/league-of-legends/vayne-guide also takes me to the list of guides. Needless to say, removing the extra request to LeagueSpy sped up my program (by ~2 seconds).
 
 ### Multithreading vs. Multiprocessing
-
 It was possible to parallelize the request and extraction tasks for each guide, but putting them on threads didn't help because of the GIL (Global Interpreter Lock).
 
 However, putting them on subprocesses resulted in faster performance.
 
 ### Multiprocessing Shared Variable
-
 After putting each task on a process, I had to get the result of the scrape from each function. But each new process has its own instance of Python, so using a global list didn't work.
 
 Using `multiprocessing`'s Manager solved the problem of sharing data between different processes.
@@ -46,6 +43,12 @@ Using `multiprocessing`'s Manager solved the problem of sharing data between dif
 Linux has a `fork()` method, so when a new process is created, the next line it executes is the line after it was created. On the other hand, Windows doesn't have a `fork()` method, so when a new process is created, it starts over from the beginning of the file. (This is probably why multiprocessing is actually slower on Windows.)
 
 Protecting the code that creates new processes inside `if __name__ == '__main__':` prevents an infinite loop of process spawning.
+
+### Writing Special Characters to HTML File
+Some guides had titles with special characters. Like this title:「10.3」Carry with the Storm's Fury. Writing that string directly results in a `UnicodeEncodeError`.
+
+This is fixed by converting the string to bytes (using `str.encode('utf-8')`) and opening the HTML file in binary mode.
+(Converting the string to bytes and opening in text mode results in the string being written like this: b"\xe3\x80\x8c10.3\xe3\x80\x8dCarry with the Storm's Fury".)
 
 ## Resources
 http://automatetheboringstuff.com/2e/chapter12/  
