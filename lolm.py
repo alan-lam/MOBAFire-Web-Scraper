@@ -127,7 +127,7 @@ if __name__ == '__main__':
     guide1 = '<br>'.join(results[0].split('\n'))
     guide2 = '<br>'.join(results[1].split('\n'))
     guide3 = '<br>'.join(results[2].split('\n'))
-    html = '<html><head><title>{} guides</title><style>body{{font-family:monospace;}}</style></head><body><h1>{}</h1><p>{}</p><h1>{}</h1><p>{}</p><h1>{}</h1><p>{}</p></body></html>'.format(champion, guide1Title, guide1, guide2Title, guide2, guide3Title, guide3).encode('utf-8')
+    html = '<html><head><title>{} guides</title><style>body{{font-family:monospace;}}p{{font-size:150%}}</style></head><body><h1>{}</h1><p>{}</p><h1>{}</h1><p>{}</p><h1>{}</h1><p>{}</p></body></html>'.format(champion, guide1Title, guide1, guide2Title, guide2, guide3Title, guide3).encode('utf-8')
     htmlFile.write(html)
     htmlFile.close()
     webbrowser.open('lol.html')
