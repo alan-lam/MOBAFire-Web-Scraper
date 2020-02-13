@@ -1,19 +1,30 @@
 import requests, bs4, sys, multiprocessing, time, platform, webbrowser
+import PySimpleGUI as sg
 from guidescrape import scrapeGuide1, scrapeGuide2, scrapeGuide3
 
 MOBAFIRE_URL = 'https://mobafire.com'
 
 if __name__ == '__main__':
-    # process command line arguments
-    timeFlag = False
-    if len(sys.argv) > 2:
-        if sys.argv[1] == '-t':
-            timeFlag = True
-            startTime = time.time()
+    # create GUI
+    sg.theme('DarkBlue')
+    checkbox = sg.Checkbox('Time Program (Leave unchecked unless you know what it does)')
+    layout = [[sg.Text('For names with spaces, separate with a dash (e.g. lee-sin)')], [sg.Text('Enter champion name: '), sg.InputText()], [checkbox], [sg.Ok(), sg.Cancel()]]
+    window = sg.Window('MOBAFire Web Scraper', layout)
+
+    # ask for input
+    while True:
+        event, values = window.read()
+        if event == 'Ok':
+            champion = values[0].lower()
+            break
         else:
-            print('Invalid command line arguments')
+            window.close()
             sys.exit()
-    champion = sys.argv[-1]
+    window.close()
+
+    timeFlag = checkbox.Get()
+    if timeFlag:
+        startTime = time.time()
     
     # handle champions with space-separated names, common alternative names, or potential misspellings
     champions = dict.fromkeys(['sol', 'aurelionsol'], 'aurelion-sol')
