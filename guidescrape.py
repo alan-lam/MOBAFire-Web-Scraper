@@ -202,7 +202,7 @@ def scrapeGuide2(guide2Link, results):
             guide2ItemImages[i].attrs['height'] = IMAGE_SIZE
             guide2Items += str(guide2ItemImages[i]) + items.text + ', '
             i += 1
-        guide2Items += '\n'
+        guide2Items += SECTION_SEPARATOR + '\n'
 
     # get second guide abilities
     guide2Abilities = ''
@@ -309,7 +309,7 @@ def scrapeGuide3(guide3Link, results):
             guide3ItemImages[i].attrs['height'] = IMAGE_SIZE
             guide3Items += str(guide3ItemImages[i]) + items.text + ', '
             i += 1
-        guide3Items += '\n'
+        guide3Items += SECTION_SEPARATOR + '\n'
 
     # get third guide abilities
     guide3Abilities = ''
