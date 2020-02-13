@@ -21,6 +21,7 @@ while True:
         sys.exit()
 window.close()
 
+# time program if checkbox is checked
 timeFlag = checkbox.Get()
 if timeFlag:
     startTime = time.time()
@@ -89,29 +90,38 @@ except:
     sys.exit()
 
 mobaSoup = bs4.BeautifulSoup(mobaRes.text, 'html.parser')
-guides = mobaSoup.select('.browse-list a')
 
-# get link to top 3 guides
+# get guide titles
+titles = mobaSoup.select('.browse-list h3')
+guide1Title = titles[0].text
+guide2Title = titles[1].text
+guide3Title = titles[2].text
+
+# get guide links
+guides = mobaSoup.select('.browse-list a')
 guide1Link = MOBAFIRE_URL + guides[0].attrs['href']
 guide2Link = MOBAFIRE_URL + guides[1].attrs['href']
 guide3Link = MOBAFIRE_URL + guides[2].attrs['href']
 
+# scrape web pages
 results = ['', '', '']
 scrapeGuide1(guide1Link, results)
 scrapeGuide2(guide2Link, results)
 scrapeGuide3(guide3Link, results)
 
-htmlFile = open('lol.html', 'w')
+# write to html file and open
+htmlFile = open('lol.html', 'wb')
 guide1 = '<br>'.join(results[0].split('\n'))
 guide2 = '<br>'.join(results[0].split('\n'))
 guide3 = '<br>'.join(results[0].split('\n'))
-html = '<html><head><title>{} guides</title><style>body{{font-family:monospace;}}</style></head><body><h1>{}</h1><p>{}</p><h1>{}</h1><p>{}</p><h1>{}</h1><p>{}</p></body></html>'.format(champion, 'Guide 1', guide1, 'Guide 2', guide2, 'Guide 3', guide3)
+html = '<html><head><title>{} guides</title><style>body{{font-family:monospace;}}</style></head><body><h1>{}</h1><p>{}</p><h1>{}</h1><p>{}</p><h1>{}</h1><p>{}</p></body></html>'.format(champion, guide1Title, guide1, guide2Title, guide2, guide3Title, guide3).encode('utf-8')
 htmlFile.write(html)
 htmlFile.close()
 webbrowser.open('lol.html')
 
 endTime = time.time()
 
+# write time to times.txt
 if timeFlag:
     timeFile = open('times.txt', 'a')
     timeFile.write(platform.system() + ' (serial)')
