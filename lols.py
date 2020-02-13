@@ -6,7 +6,7 @@ MOBAFIRE_URL = 'https://mobafire.com'
 
 # create GUI
 sg.theme('DarkBlue')
-checkbox = sg.Checkbox('Time Program (Leave unchecked unless you know what it does)')
+checkbox = sg.Checkbox('Time Program')
 layout = [[sg.Text('For names with spaces, separate with a dash (e.g. lee-sin)')], [sg.Text('Enter champion name: '), sg.InputText()], [checkbox], [sg.Ok(), sg.Cancel()]]
 window = sg.Window('MOBAFire Web Scraper', layout)
 
