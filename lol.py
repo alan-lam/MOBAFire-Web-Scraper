@@ -124,7 +124,6 @@ endTime = time.time()
 # write time to times.txt
 if timeFlag:
     timeFile = open('times.txt', 'a')
-    timeFile.write(platform.system() + ' (serial) ')
-    timeFile.write(str(endTime-startTime))
-    timeFile.write('\n')
+    timeFile.write(platform.system() + ' (serial) ' + str(endTime-startTime) + '\n')
+    timeFile.close()
     import time_analysis

@@ -14,25 +14,24 @@ mac_serial = []
 mac_multi = []
 
 i = 0
-while i < len(timesContent)-1:
-    platform_type = timesContent[i]
-    time = timesContent[i+1]
+while i < len(timesContent):
+    platform_type, exec_type, time = timesContent[i].split(' ')
     if 'Windows' in platform_type:
-        if 'serial' in platform_type:
+        if 'serial' in exec_type:
             win_serial.append(float(time[:len(time)-1]))
         else:
             win_multi.append(float(time[:len(time)-1]))
     elif 'Linux' in platform_type:
-        if 'serial' in platform_type:
+        if 'serial' in exec_type:
             lin_serial.append(float(time[:len(time)-1]))
         else:
             lin_multi.append(float(time[:len(time)-1]))
     else:
-        if 'serial' in platform_type:
+        if 'serial' in exec_type:
             mac_serial.append(float(time[:len(time)-1]))
         else:
             mac_multi.append(float(time[:len(time)-1]))
-    i += 2
+    i += 1
 
 labels = ['Windows', 'Linux', 'macOS']
 

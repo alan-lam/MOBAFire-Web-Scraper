@@ -137,7 +137,6 @@ if __name__ == '__main__':
     # write time to times.txt
     if timeFlag:
         timeFile = open('times.txt', 'a')
-        timeFile.write(platform.system() + ' (multiprocessing) ')
-        timeFile.write(str(endTime-startTime))
-        timeFile.write('\n')
+        timeFile.write(platform.system() + ' (multiprocessing) ' + str(endTime-startTime) + '\n')
+        timeFile.close()
         import time_analysis
