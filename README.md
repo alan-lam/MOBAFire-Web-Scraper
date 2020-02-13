@@ -4,17 +4,17 @@ A web scraper that grabs runes, spells, items, and level order for any champion 
 The results are written to an HTML file ("lol.html"), which is automatically opened in the default web browser.
 
 ## Usage
-Run script using serial execution: `python lol.py [-t] champion-name`  
-Run script using multiprocessing: `python lolm.py [-t] champion-name`  
-The `-t` option times the program and writes the time to a file called "times.txt". It also automatically runs "time_analysis.py", which saves a graph ("times.png").
+Run script using serial execution: `python lol.py`  
+Run script using multiprocessing: `python lolm.py`
 
-Most common alternative champion names are handled, e.g. "cass", "tf", "jarvan", "nunu", "mundo".
+Most of the common alternative champion names are handled, e.g. "cass", "tf", "jarvan", "nunu", "mundo".
 
-Dependencies:
+Dependencies (if running on command line):
 - requests
-- bs4
-- matplotlib (if running with the `-t` option)
-- numpy (if running with the `-t` option)
+- Beautiful Soup
+- Matplotlib
+- Numpy
+- PySimpleGUI
 
 ## Screenshots
 ![](pictures/gui.png)
