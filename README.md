@@ -1,9 +1,15 @@
 # MOBAFire-Web-Scraper
 A web scraper that grabs runes, spells, items, and level order for any champion from the top 3 guides on MOBAFire.
 
-The results are written to an HTML file ("lol.html"), which is automatically opened in the default web browser.
+The results are written to an HTML file (`lol.html`), which is automatically opened in the default web browser.
 
 ## Usage
+
+### Windows Executable
+Download `Windows.zip` at https://github.com/alan-lam/MOBAFire-Web-Scraper/releases  
+Run `lol.exe`
+
+### Command Line
 Run script using serial execution: `python lols.py`  
 Run script using multiprocessing: `python lolm.py`
 
