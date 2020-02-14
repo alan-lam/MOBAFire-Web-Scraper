@@ -6,7 +6,7 @@ The results are written to an HTML file (`lol.html`), which is automatically ope
 ## Usage
 
 ### Windows Executable
-Download `Windows.zip` at https://github.com/alan-lam/MOBAFire-Web-Scraper/releases  
+Download `lol-Windows.zip` at https://github.com/alan-lam/MOBAFire-Web-Scraper/releases  
 Run `lol.exe`
 
 ### Command Line
