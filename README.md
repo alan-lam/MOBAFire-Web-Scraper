@@ -5,11 +5,11 @@ The results are written to an HTML file (`lol.html`), which is automatically ope
 
 ## Usage
 
-### Windows Executable
+### Option 1: Windows Executable
 Download `lol-Windows.zip` at https://github.com/alan-lam/MOBAFire-Web-Scraper/releases  
 Run `lol.exe`
 
-### Command Line
+### Option 2: Command Line
 Run script using serial execution: `python lols.py`  
 Run script using multiprocessing: `python lolm.py`
 
