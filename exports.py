@@ -342,7 +342,9 @@ def scrapeGuide3(guide3Link, results):
 sg.theme('DarkBlue')
 checkbox = sg.Checkbox('Time Program')
 layout = [[sg.Text('For names with spaces, separate with a dash (e.g. lee-sin)')], [sg.Text('Enter champion name: '), sg.InputText()], [checkbox], [sg.Ok(), sg.Cancel()]]
+dist_layout = [[sg.Text('For names with spaces, separate with a dash (e.g. lee-sin)')], [sg.Text('Enter champion name: '), sg.InputText()], [sg.Ok(), sg.Cancel()]] # used for executable (no timing option)
 window = sg.Window('MOBAFire Web Scraper', layout)
+dist_window = sg.Window('MOBAFire Web Scraper', dist_layout) # used for executable (no timing option)
 misspell_window = sg.Window('Error', [[sg.Text('Champion name misspelled')]])
 error_window = sg.Window('Error', [[sg.Text('An error has occurred. Contact me.')]])
 
